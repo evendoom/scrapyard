@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- Halfmoon CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
+
+        <!-- Internal CSS -->
+        <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+
+        <title>ScrapYard</title>
+
+    </head>
+
+    <body>
+
+    <div class="page-wrapper">
+        <header>
+            {% include 'navbar.html' %}
+        </header>
+
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        <footer>
+        <p>&copy; ScrapYard 2021</p>
+        <a href="#">About</a>
+        </footer>
+
+        </div>
+
+        <!-- Halfmoon JS -->
+        <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+
+    </body>
+
+</html>
