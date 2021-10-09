@@ -112,3 +112,40 @@ footer a:hover {
 .home-text h1 {
     font-size: 6rem;
 }
+
+/* REGISTER PAGE */
+
+.register-page {
+    letter-spacing: 1px;
+}
+
+::placeholder {
+    color: #F2F2EF;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    height: var(--input-height);
+    border-radius: var(--input-border-radius);
+    background-color: rgb(14, 14, 14);
+    border: 2px solid #C8C8C8;
+    opacity: 0.8;
+    color: #F2F2EF;
+    padding-left: var(--input-horizontal-padding);
+    padding-right: var(--input-horizontal-padding);
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    outline: none;
+    border: 2px solid #00931A;
+}
+
+.register-button {
+    margin-top: 3%;
+    background-color: #C8C8C8;
+}
+
+.register-button:hover {
+    background-color: #00931A;
+    transition: 0.2s ease-out;
+}

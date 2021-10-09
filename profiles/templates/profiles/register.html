@@ -1,0 +1,79 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container-fluid register-page">
+        <div class="container">
+
+            <h3 class="text-center">Create a Profile</h3>
+
+            <form action="{% url 'register_page' %}" method="POST">
+                {% csrf_token %}
+
+                <!-- Personal Information -->
+                <div class="form-row justify-content-center row-eq-spacing">
+                    <div class="col-md-3">
+                        <label for="first_name" class="required">First Name</label>
+                        <input type="text" id="first_name" name="first_name" placeholder="i.e. John" required="required">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="last_name" class="required">Last Name</label>
+                        <input type="text" id="last_name" name="last_name" placeholder="i.e. Smith" required="required">
+                    </div>
+                </div>
+
+                <!-- Login Information -->
+                <div class="form-row justify-content-center row-eq-spacing">
+                    <div class="col-md-3">
+                        <label for="email" class="required">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your email address" required="required">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="password" class="required">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Type in a password" required="required">
+                    </div>
+                </div>
+
+                <!-- Address Information -->
+                <div class="form-row justify-content-center row-eq-spacing">
+                    <div class="col-md-3">
+                        <label for="address1" class="required">Address 1</label>
+                        <input type="text" id="address1" name="address1" placeholder="i.e. 23 Posh Building" required="required">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="address2">Address 2</label>
+                        <input type="text" id="address2" name="address2" placeholder="i.e. Canary Road">
+                    </div>
+                </div>
+
+                <div class="form-row justify-content-center row-eq-spacing">
+                    <div class="col-md-3">
+                        <label for="city" class="required">City</label>
+                        <input type="text" id="city" name="city" placeholder="i.e. London" required="required">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="country" class="required">Country</label>
+                        <input type="text" id="country" name="country" placeholder="i.e. England" required="required">
+                    </div>
+                </div>
+
+                <div class="form-row justify-content-center row-eq-spacing">
+                    <div class="col-md-3">
+                        <label for="postcode" class="required">Postcode</label>
+                        <input type="text" id="postcode" name="postcode" placeholder="i.e. England" required="required">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="phone_number">Phone Number</label>
+                        <input type="text" id="phone_number" name="phone_number" placeholder="i.e. 07123456789">
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-row justify-content-center row-eq-spacing">
+                    <input class="btn register-button" type="submit" value="Register">
+                </div>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}
