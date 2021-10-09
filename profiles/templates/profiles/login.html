@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container-fluid login-page">
+        <div class="content">
+            
+            <h3 class="text-center">Login</h3>
+
+            <form action="">
+                {% csrf_token %}
+
+                <div class="form-row justify-content-center row-eq-spacing">
+                    <div class="col-md-3">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your email address" required="required">
+                    </div>
+                </div>
+
+                <div class="form-row justify-content-center row-eq-spacing">
+                    <div class="col-md-3">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Your password" required="required">
+                    </div>
+                </div>
+
+                <div class="form-row justify-content-center row-eq-spacing">
+                    <input class="btn login-button" type="submit" value="Login">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

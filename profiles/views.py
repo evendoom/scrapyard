@@ -39,3 +39,9 @@ def register_page(request):
         )
 
     return render(request, 'profiles/register.html')
+
+
+def login_page(request):
+    """ Render login page """
+
+    return render(request, 'profiles/login.html')
