@@ -23,7 +23,7 @@ def register_page(request):
         }
 
         # Create User object
-        User.objects.create(
+        User.objects.create_user(
             username=response['email'],
             password=response['password'],
             email=response['email']
