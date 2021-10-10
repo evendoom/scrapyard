@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from .signals import profile_send
 
@@ -77,3 +77,10 @@ def login_page(request):
             print('Incorrect Username / Password')
 
     return render(request, 'profiles/login.html')
+
+
+def logout_page(request):
+    """ Kill user's session and redirect to main page """
+
+    logout(request)
+    return redirect('main_page')
