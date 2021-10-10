@@ -8,7 +8,7 @@
             
             <h3 class="text-center">Login</h3>
 
-            <form action="">
+            <form action="{% url 'login_page' %}" method='POST'>
                 {% csrf_token %}
 
                 <div class="form-row justify-content-center row-eq-spacing">
