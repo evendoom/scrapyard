@@ -69,6 +69,22 @@ main {
     transition: 0.2s ease-in;
 }
 
+.dropdown .logged-in-menu, .dropdown .dropdown-menu .logged-in-menu {
+    background-color: #00172A;
+    border-color: #F2F2EF;
+    color: #F2F2EF;
+}
+
+.dropdown .logged-in-menu:hover {
+    background-color: #00172A;
+    border-color: #F2F2EF;
+    color: #F2F2EF;
+}
+
+.dropdown .dropdown-menu a {
+    color: #F2F2EF;
+}
+
 /* FOOTER */
 
 footer {

@@ -5,6 +5,17 @@
     <!-- Navbar nav -->
     <ul class="navbar-nav d-none d-md-flex links">
       {% if request.user.is_authenticated %}
+      <!-- Dropdown Menu -->
+        <div class="dropdown">
+          <button class="btn logged-in-menu" data-toggle="dropdown" type="button" id="dropdown-toggle-btn-1" aria-haspopup="true" aria-expanded="false">
+            Welcome {{user.username}}
+          </button>
+          <div class="dropdown-menu logged-in-menu" aria-labelledby="dropdown-toggle-btn-1">
+            <a href="#" class="dropdown-item">Profile Settings</a>
+            <a href="#" class="dropdown-item">My orders</a>
+          </div>
+        </div>
+        <!-- Logout Button -->
         <li class="nav-item">
           <a href="{% url 'logout_page' %}" class="nav-link">Logout</a>
         </li>
