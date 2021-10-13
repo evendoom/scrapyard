@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
+from django.contrib import messages
 from django.contrib.auth.models import User
 from .signals import profile_send
 
@@ -58,25 +59,22 @@ def login_page(request):
         # Check if username exists
         try:
             user = User.objects.get(username=response['username'])
-            print(user)
         except:  # noqa: E722
-            # Add flash message here
-            print('Incorrect login details')
-
-        # Authenticate user
-        user = authenticate(
-            request,
-            username=response['username'],
-            password=response['password']
-        )
-
-        # Log user in
-        if user is not None:
-            login(request, user)
-            return redirect('main_page')
+            messages.error(request, 'Incorrect Username')
         else:
-            # Add flash message
-            print('Incorrect Username / Password')
+            # Authenticate user
+            user = authenticate(
+                request,
+                username=response['username'],
+                password=response['password']
+            )
+
+            # Log user in
+            if user is not None:
+                login(request, user)
+                return redirect('main_page')
+            else:
+                messages.error(request, 'Incorrect Username / Password')
 
     return render(request, 'profiles/login.html')
 
@@ -85,4 +83,5 @@ def logout_page(request):
     """ Kill user's session and redirect to main page """
 
     logout(request)
+    messages.info(request, "You've been logged out!")
     return redirect('main_page')

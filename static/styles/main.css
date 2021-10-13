@@ -32,6 +32,16 @@ main {
     flex-grow: 1;
 }
 
+.messages.error {
+    color: rgb(183, 10, 10);
+    font-weight: 500;
+}
+
+.messages.info {
+    font-weight: 500;
+    color: #F2F2EF;
+}
+
 /* NAVBAR */
 
 .navbar-nav:not(:first-child) {
@@ -79,6 +89,10 @@ main {
     background-color: #00172A;
     border-color: #F2F2EF;
     color: #F2F2EF;
+}
+
+ .dropdown .btn, .dropdown .btn.active {
+    box-shadow: none;
 }
 
 .dropdown .logged-in-menu a:hover {
