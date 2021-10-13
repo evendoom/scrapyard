@@ -20,3 +20,6 @@ class Profile(models.Model):
     country = models.CharField(max_length=50)
     phone_number = models.IntegerField(null=True, blank=True)
     email = models.CharField(max_length=60)
+
+    def __str__(self):
+        return f"{self.first_name} {self.surname}"
