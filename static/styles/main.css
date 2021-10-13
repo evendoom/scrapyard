@@ -81,6 +81,10 @@ main {
     color: #F2F2EF;
 }
 
+.dropdown .logged-in-menu a:hover {
+    color: #00931A;
+}
+
 .dropdown .dropdown-menu a {
     color: #F2F2EF;
 }
