@@ -1,0 +1,74 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid register-page">
+    <div class="content">
+
+        <h3 class="text-center">Update Profile Settings</h3>
+
+        <form action="{% url 'update_profile_page' %}" method="POST">
+            {% csrf_token %}
+
+            <!-- Personal Information -->
+            <div class="form-row justify-content-center row-eq-spacing">
+                <div class="col-md-3">
+                    <label for="id_first_name" class="required">First Name</label>
+                    {{ form.first_name }}
+                </div>
+                <div class="col-md-3">
+                    <label for="id_surname" class="required">Last Name</label>
+                    {{ form.surname }}
+                </div>
+            </div>
+
+            <!-- Login Information -->
+            <div class="form-row justify-content-center row-eq-spacing">
+                <div class="col-md-6">
+                    <label for="id_email" class="required">Email</label>
+                    {{ form.email }}
+                </div>
+            </div>
+
+            <!-- Address Information -->
+            <div class="form-row justify-content-center row-eq-spacing">
+                <div class="col-md-3">
+                    <label for="id_address1" class="required">Address 1</label>
+                    {{ form.address_1 }}
+                </div>
+                <div class="col-md-3">
+                    <label for="id_address2">Address 2</label>
+                    {{ form.address_2 }}
+                </div>
+            </div>
+
+            <div class="form-row justify-content-center row-eq-spacing">
+                <div class="col-md-3">
+                    <label for="id_city" class="required">City</label>
+                    {{ form.city }}
+                </div>
+                <div class="col-md-3">
+                    <label for="id_country" class="required">Country</label>
+                    {{ form.country }}
+                </div>
+            </div>
+
+            <div class="form-row justify-content-center row-eq-spacing">
+                <div class="col-md-3">
+                    <label for="id_postal_code" class="required">Postcode</label>
+                    {{ form.postal_code }}
+                </div>
+                <div class="col-md-3">
+                    <label for="id_phone_number">Phone Number</label>
+                    {{ form.phone_number }}
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-row justify-content-center row-eq-spacing">
+                <input class="btn register-button" type="submit" value="Update Profile">
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .signals import profile_send
+from .signals import profile_send, user_update
+from .forms import ProfileForm
 
 
 def register_page(request):
@@ -85,3 +86,33 @@ def logout_page(request):
     logout(request)
     messages.info(request, "You've been logged out!")
     return redirect('main_page')
+
+
+def update_profile_page(request):
+    """ Render page to update Profile """
+    # Get profile instance
+    profile = request.user.profile
+
+    if request.method == 'POST':
+        # Store previous username
+        username = request.user.username
+
+        form = ProfileForm(request.POST, instance=profile)
+
+        if form.is_valid():
+            form.save()
+            # Send signal to update User
+            user_update.send(
+                sender=user_update,
+                username=username
+            )
+            messages.info(request, 'Profile updated!')
+            return redirect('main_page')
+
+    form = ProfileForm(instance=profile)
+
+    context = {
+        'form': form
+    }
+
+    return render(request, 'profiles/user_settings.html', context)

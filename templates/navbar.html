@@ -11,7 +11,7 @@
             Welcome {{user.first_name}}!
           </button>
           <div class="dropdown-menu logged-in-menu" aria-labelledby="dropdown-toggle-btn-1">
-            <a href="#" class="dropdown-item">Profile Settings</a>
+            <a href="{% url 'update_profile_page' %}" class="dropdown-item">Profile Settings</a>
             <a href="#" class="dropdown-item">My orders</a>
           </div>
         </div>

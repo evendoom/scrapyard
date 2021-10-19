@@ -1,9 +1,11 @@
 import django.dispatch
 from django.dispatch import receiver
+from django.contrib.auth.models import User
 from .models import Profile
 
 # Signals
 profile_send = django.dispatch.Signal()
+user_update = django.dispatch.Signal()
 
 
 # Receivers
@@ -28,3 +30,19 @@ def create_profile(sender, **kwargs):
         phone_number=response['phone_number'],
         email=response['email']
     )
+
+
+@receiver(user_update)
+def update_user(sender, **kwargs):
+    username = kwargs['username']
+
+    # Get user and profile instances
+    user = User.objects.get(username=username)
+    profile = Profile.objects.get(user=user)
+
+    # Update user instance
+    user.username = profile.email
+    user.email = profile.email
+    user.first_name = profile.first_name
+    user.last_name = profile.surname
+    user.save()
