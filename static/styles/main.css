@@ -212,3 +212,28 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     background-color: #00931A;
     transition: 0.2s ease-out;
 }
+
+/* USER SETTINGS PAGE */
+
+.update-button {
+    margin-top: 3%;
+    background-color: #C8C8C8;
+    text-transform: uppercase;
+}
+
+.update-button:hover {
+    background-color: #00931A;
+    transition: 0.2s ease-out;
+}
+
+.delete-button {
+    margin-top: 3%;
+    margin-left: 2%;
+    background-color: #C8C8C8;
+    text-transform: uppercase;
+}
+
+.delete-button:hover {
+    background-color: #ef0b0b;
+    transition: 0.2s ease-out;
+}

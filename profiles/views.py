@@ -116,3 +116,16 @@ def update_profile_page(request):
     }
 
     return render(request, 'profiles/user_settings.html', context)
+
+
+def delete_user_page(request):
+    """ Delete user profile """
+
+    try:
+        user = User.objects.get(id=request.user.id)
+        user.delete()
+        messages.info(request, 'User deleted!')
+    except:  # noqa: E722
+        messages.error(request, 'Internal error, please try again.')
+    finally:
+        return redirect('main_page')
