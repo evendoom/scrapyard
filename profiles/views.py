@@ -43,6 +43,9 @@ def register_page(request):
             response=response
         )
 
+        login(request, user)
+        return redirect('main_page')
+
     return render(request, 'profiles/register.html')
 
 
